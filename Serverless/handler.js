@@ -60,4 +60,37 @@ app.post('/addPlaneta',async(req,res)=>{
       gravedad,terreno,superficie_del_agua, poblacion,residentes,peliculas,creado,editado,url }); }
   });
 });
+
+
+/**app.get('/planetas',(req,res)=>{
+  
+  const data ={ TableName: START_TABLE }
+  dynamoDB.scan(data,(error,results)=>{
+    if(error){
+      res.status(400).json({msg:' Error al acceder a los datos '});
+    }else{
+      const {Items}= results;
+      res.status(200).json({success:true,Items})
+    }
+  });
+})
+
+
+app.get('/planetasAPI',async(req,res)=>{
+
+  req = await axios.get('https://swapi.py4e.com/api/planets/');
+
+  const respt = req.data.results.map(planetas =>({
+    planeta              :planetas.name,
+    clima                :planetas.climate,
+    terreno              :planetas.terrain,
+    poblacion            :planetas.population
+
+    }));
+  console.log(respt);
+
+  res.json(respt);
+
+});
+*/
 module.exports.generic = serverless(app);
