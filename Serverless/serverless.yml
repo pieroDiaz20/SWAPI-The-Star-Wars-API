@@ -88,8 +88,8 @@ functions:
     handler: handler.generic
     events:
       - http: ANY /
-      - http: ANY {proxy+}
-
+      - http: ANY /{proxy+}
+        
 resources:
   Resources:
     UserTable:
